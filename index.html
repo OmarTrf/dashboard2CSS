@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta charset="utf-8">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- FontGoogle -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet"> 
+  <title>wel</title>
+
+  <!-- ChartGoogle fournisseur -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'fornisseur');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['cheque', 25],
+          ['espece', 35],
+          ['non-paye', 40]
+        ]);
+
+        // Set chart options
+        var options = {'title':'Fournisseur',
+                       'width':340,
+                       'height':270,
+                      'colors':['#6a89cc','#9980FA','#60a3bc']};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_divFornisseur'));
+        chart.draw(data, options);
+      }
+    </script>
+    <!-- ChartGoogle client -->
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'client');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['cheque', 30],
+          ['espece', 25],
+          ['non-paye',60]
+        ]);
+
+        // Set chart options
+        var options = {'title':'Client',
+                       'width':340,
+                       'height':270,
+                      'colors':['#6a89cc','#9980FA','#60a3bc']};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_divClient'));
+        chart.draw(data, options);
+      }
+    </script>
+    <!-- ChartGoogleAll  -->
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Mounth', 'chique', 'espece'],
+          ['janvier',  1000,      400],
+          ['fevrier',  1170,      460],
+          ['mars',  800,       900],
+          ['april',  1030,      400]
+        ]);
+
+        var options = {
+          title: 'All',
+          'width':340,
+          'height':270,
+          colors:['#2ed573','#9980FA'],
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_divAll'));
+
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+  <div class="row">
+    <!--------- Menu Vertical ---------->
+    <nav>
+        <div class="logo">
+          <img src="logo/lion-logo.png">
+        </div>
+        <ul>
+          <h4>Admins</h4>
+          <li class="menu_active"><span><i class="fa-solid fa-scroll"></i><p>Factures</p></span></li>
+          <li><i class="fa-solid fa-user"></i><p>Client</p></li>
+          <li><i class="fas fa-chart-line"></i><p>Recouverements</p></li>
+          <li><i class="fa-brands fa-buffer"></i><p>Factures</p></li>
+          <li><i class="fas fa-file-alt"></i><p>Articles</p></li>
+          <h4 class="sett">Settings</h4>
+          <li><i class="fas fa-history"></i><p>Historique</p></li>
+          <li><i class="fas fa-cogs"></i><p>Options</p></li>
+          <li><i class="fas fa-chart-bar"></i><p>Chartes</p></li>
+          <br><br>
+          <li><i class="fas fa-moon"></i><p>Dark</p></li>
+          <li><i class="fas fa-chevron-left"></i></i><p>Collapse</p></li>
+        </ul>
+    </nav>
+    <!-- Seacr Horizontal -->
+    <div class="search">
+      <img src="logo/lion-logo.png">
+      <h2>Welcomme Mr. <span>Mohamed</span></h2>
+      <form>
+        <div>
+          <input type="text" name="" placeholder="Search...">
+          <i class="fas fa-search"></i>
+        </div>
+      </form>
+    </div>
+    <!--------- Right --------->
+    <section>
+        <!-- Liste Facture -->
+        <div class="box factures box_active">
+          <h1>Liste factures</h1>
+          <div class="two_tables">
+            <div class="tbl-header">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>client</th>
+                    <th>Montant</th>
+                    <th>Espece</th>
+                    <th>More infos</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="tbl-content">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                  <tr>
+                    <td>2</td>
+                    <td>SALAH</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>nini nono </td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>nini nono </td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>nini nono </td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>mohamed</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>mohamed</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+
+                  <tr>
+                    <td>8</td>
+                    <td>mohamed</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>mohamed</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>khalid</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>khalid</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>khalid</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>khalid</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                   <tr>
+                    <td>9</td>
+                    <td>khalid</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                   <tr>
+                    <td>9</td>
+                    <td>mohamed ali</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                   <tr>
+                    <td>9</td>
+                    <td>mohamed ali</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                   <tr>
+                    <td>9</td>
+                    <td>mohamed ali</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                   <tr>
+                    <td>9</td>
+                    <td>mohamed ali</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- Liste Clients -->
+        <div class="box client">
+          <h1>Liste Clients</h1>
+          <div class="two_tables">
+            <div class="tbl-header">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>name</th>
+                    <th>M.Paye</th>
+                    <th>M.Impaye</th>
+                    <th>More infos</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="tbl-content">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                  <tr>
+                    <td>2</td>
+                    <td>SALAH</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>nini nono </td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>nini nono </td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>nini nono </td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                   <tr>
+                    <td>9</td>
+                    <td>khalid</td>
+                    <td>$1,190</td>
+                    <td>$1,190</td>
+                    <td class='select'>Details</td>
+                  </tr>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!--Dashboard Graphes -->
+        <div class="box graphes">
+           <h1>Dashboard</h1>
+           <div id="chart_divFornisseur"></div>
+           <div id="chart_divClient"></div>
+           <div id="chart_divAll"></div>
+           <div class="btnsNew">
+              <button>Nouvelle facture</button>
+              <button>Nouvelle order de vairement</button>
+           </div>
+        </div>
+        <!-- New Facture -->
+        <div class="box new_facture">
+          <form>
+            <div>
+              <h1>Add new Facture</h1>
+              <div>
+                <label>Nom Client</label>
+                <input type="text" name="" placeholder="nom client">
+              </div>
+              <div>
+                <label>Produit</label>
+                <select>
+                  <option value="-----">------</option>
+                  <option value="gasoil">Gasoil</option>
+                  <option value="gaz">Gaz</option>
+                  <option value="oil">oil</option>
+                </select>
+              </div>
+              <div>
+                <label>Tva</label>
+                <p class="tva">0.65%</p>
+              </div>
+              <div>
+                <button type="submit">Send</button>
+              </div>
+            </div>
+            <div>
+              <div class="two_tables">
+                <div class="tbl-header">
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                      <tr>
+                        <th>produit</th>
+                        <th>quntite</th>
+                        <th>htc</th>
+                        <th>ttc</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="tbl-content">
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>khalid</td>
+                        <td>$1,190</td>
+                        <td>$1,190</td>
+                        <td class='select'>Details</td>
+                      </tr>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="desc">
+                <button>add</button>
+                <div class="total">
+                  <div>
+                    <h3>Total HTC</h3>
+                    <p>5700 dh</p>
+                  </div>
+                  <div>
+                    <h3>Total TTC</h3>
+                    <p>9500 dh</p>
+                  </div>
+                  <div>
+                    <h3>Total</h3>
+                    <p>900 dh</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+    </section>
+
+
+<script type="text/javascript" src="js/style.js"></script>
+<script>
+  menu = document.querySelector('nav');
+  btns_menu = menu.querySelectorAll('ul li');
+  box = document.querySelectorAll('.box');
+  for(let i=0;i<btns_menu.length;i++){
+    btns_menu[i].addEventListener('click',function(){
+      for(let j=0;j<box.length;j++){
+        box[j].classList.remove('box_active');
+        btns_menu[j].classList.remove('menu_active');
+      }
+      box[i].classList.add('box_active');
+      btns_menu[i].classList.add('menu_active');
+    })
+  }
+</script>
+</body>
+</html>
